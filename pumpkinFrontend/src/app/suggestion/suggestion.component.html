@@ -1,0 +1,5 @@
+<div>
+    <p>{{address}}</p>
+    <p class="message">{{message}}</p>
+    <button *ngIf="web3.suggestionPeriodClosed" (click)="submitVote()">Vote (costs 1 Token)</button>
+</div>

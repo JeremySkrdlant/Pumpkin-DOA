@@ -1,0 +1,33 @@
+<h1>Pumpkin Vote</h1>
+
+
+<h2>Step 1: Connect your Wallet</h2>
+<section id="walletConnection">
+  <button (click)="web3.connectToWallet()" *ngIf="web3.walletAddress == ''">Connect to Wallet</button>
+  <p *ngIf="web3.walletAddress != ''">{{web3.walletAddress}}</p>
+</section>
+
+<h2>Step 2: Get some Eth</h2>
+<button (click)="web3.getEth()">Give me Eth</button>
+
+<h2>Step 3: Get your voting tokens</h2>
+<button (click)="web3.requestTokens()">Give me token</button>
+
+<h2>Step 4: Authorize yourself to burn your tokens for a vote</h2>
+<button (click)="web3.authorizeBurn()">Authorize the burn</button>
+
+<h2>Step 5: Submit a suggestion</h2>
+<p>Note that everyone can only submit once. If you submit again, it will override your previous submission.</p>
+<input type="text" [(ngModel)]="suggestion">
+<button (click)="submitSuggestion()">Submit</button>
+
+<h2>Step 6: View Suggestions and Vote</h2>
+
+<button (click)="web3.getSuggestions()">Get Suggestions</button>
+
+<app-suggestion *ngFor="let suggestion of web3.allSuggestions" [address]="suggestion.address"
+  [message]="suggestion.message"></app-suggestion>
+
+<h2>Results Area</h2>
+<button (click)="web3.SeeResult()">See Results</button>
+<app-vote-tally *ngFor="let tally of web3.allVotes" [count]="tally.vote" [message]="tally.message"></app-vote-tally>

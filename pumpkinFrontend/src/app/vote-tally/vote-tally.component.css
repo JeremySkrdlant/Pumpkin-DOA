@@ -1,0 +1,24 @@
+section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid #333;
+    padding: 0px 10px;
+}
+
+p {
+    margin: 0px;
+    padding: 0px;
+}
+
+p:first-child {
+    flex: 1;
+}
+
+p:last-child {
+    font-weight: bold;
+    background-color: orange;
+    font-size: 30px;
+    padding: 0px 20px;
+    margin-left: 10px;
+}
