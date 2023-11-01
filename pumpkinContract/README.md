@@ -1,13 +1,13 @@
-# Sample Hardhat Project
+# Pumpkin Contract
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+This is a simple ERC20 contract that allows us to vote. 
 
-Try running some of the following tasks:
+## rules 
+* Each Wallet address gets one suggestion.  They can change it but they can not have 2.
+* Each Wallet can request 3 tokens (note, they do need to authorize these tokens for burn)
+* The user can not vote while the suggestion period is open.
+* Each vote burns one of the users voting tokens.
 
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.ts
-```
+## Future Plans 
+* Add more event emitters
+* Seperate the Governance out into a seperate contract. 
